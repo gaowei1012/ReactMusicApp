@@ -8,13 +8,16 @@
     "react-scripts": "1.1.0"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
+    "start": "node scripts/customized-build start",
+    "build": "node scripts/customized-build build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
   },
   "devDependencies": {
+    "poststylus": "^1.0.0",
     "proxyquire": "^1.8.0",
-    "rewire": "^3.0.2"
+    "rewire": "^3.0.2",
+    "stylus": "^0.54.5",
+    "stylus-loader": "^3.0.1"
   }
 }

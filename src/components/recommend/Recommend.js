@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Swiper from 'swiper';
+import LazyLoad, {forceCheck} from 'react-lazyload';
 import { getCarousel, getNewAlbum } from '../../api/recommend';
 import { CODE_SUCCESS } from '../../api/config';
 import * as AlbumModel from '../../model/album';
@@ -82,7 +83,9 @@ class Reacommend extends Component {
             return (
                 <div className="album-wrapper" key={album.mId}>
                     <div className="left">
-                        <img src={album.img} width="100%" height="100%" alt={album.name} />
+                        <LazyLoad>
+                            <img src={album.img} width="100%" height="100%" alt={album.name} />
+                        </LazyLoad>
                     </div>
                     <div className="right">
                         <div className="album-name">
@@ -100,7 +103,11 @@ class Reacommend extends Component {
         });
         return (
             <div className="music-recommend">
-                <Scroll refresh={this.state.refreshScroll}>
+                <Scroll refresh={this.state.refreshScroll}
+                    onScroll= {(e) => {
+                        forceCheck();
+                    }}
+                >
                     <div>
                         <div className="slider-container">
                             <div className="swiper-wrapper">

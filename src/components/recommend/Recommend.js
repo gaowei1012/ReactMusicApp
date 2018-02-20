@@ -10,3 +10,5 @@ class Reacommend extends Component {
         );
     }
 }
+
+export default Reacommend;

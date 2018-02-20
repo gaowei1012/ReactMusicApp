@@ -10,3 +10,5 @@ class Search extends Component {
         );
     };
 }
+
+export default Search;

@@ -17,7 +17,7 @@ export function createAlbumByList(data) {
         data.album_id,
         data.album_mId,
         data.album_name,
-        http://y.gtimg.cn/music/photo_new/T002R300x300M000${data.album_mid}.jpg?max_age=2592000`,
+        `http://y.gtimg.cn/music/photo_new/T002R300x300M000${data.album_mid}.jpg?max_age=2592000`,
         filterSinger(data.singers),
         data.public_time
     );

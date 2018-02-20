@@ -4,6 +4,7 @@ import { getCarousel, getNewAlbum } from '../../api/recommend';
 import { CODE_SUCCESS } from '../../api/config';
 import * as AlbumModel from '../../model/album';
 import Scroll from '../../common/scroll/Scroll';
+import Loading from '../../common/loading/Loading';
 
 import './recommend.styl';
 import 'swiper/dist/css/swiper.css';
@@ -14,6 +15,7 @@ class Reacommend extends Component {
         super(props);
 
         this.state = {
+            loading: true,
             sliderList: [],
             newAlbums: [],
             refreshScroll: false
@@ -56,6 +58,7 @@ class Reacommend extends Component {
                     });
                     // 更新dom
                     this.setState({
+                        loading: false,
                         newAlbums: albumList
                     }, () => {
                         this.setState({ refreshScroll: true });

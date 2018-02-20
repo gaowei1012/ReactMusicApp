@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import Header from '../../common/header/Header';
 import Scroll from '../../common/scroll/Scroll';
 import Loading from '../../common/loading/Loading';
-
+import {getSongVkey} from '../../api/song';
 import {getAlbumInfo} from '../../api/recommend';
 import {CODE_SUCCESS} from '../../api/config';
 import * as AlbumModel from '../../model/album';
@@ -47,6 +47,8 @@ class Album extends React.Component {
 
                     songList.forEach(item => {
                         let song = SongModel.createSong(item);
+                        // 获取歌词
+                        this.getSongUrl(song, item.songmid);
                         songs.push(song);
                     });
                     // DOM
@@ -61,7 +63,20 @@ class Album extends React.Component {
                 }
             }
         });
-    }
+    };
+
+    getSongUrl(song, mId) {
+        getSongVkey(mId).then((res) => {
+            if (res) {
+                if (res.code === CODE_SUCCESS) {
+                    if (res.data.items) {
+                        let item = res.data.items[0];
+                        song.url = `http://dl.stream.qqmusic.qq.com/${item.filename}?vkey=${item.vkey}&guid=3655047200&fromtag=66`
+                    }
+                }
+            }
+        });
+    };
     
     render() {
         let album = this.state.album;

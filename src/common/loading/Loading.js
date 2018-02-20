@@ -5,9 +5,10 @@ import './loadding.styl';
 
 class Loading extends React.Component {
     render() {
-        let displayStyle = this.props.show = true ? {display: ''} : {display: 'none'};
+        let displayStyle = this.props.show === true ? 
+            {display: ''} : {display: 'none'};
         return (
-            <div className="loading-container">
+            <div className="loading-container" style={displayStyle}>
                 <div className="loading-wrapper">
                     <img src={LoadingImg} width="18px" height="18px" alt='loading' />
                     <div className="loading-title">

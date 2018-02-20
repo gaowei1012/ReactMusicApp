@@ -35,7 +35,7 @@ export function getNewAlbum() {
 };
 
 // 获取专辑信息
-export function getAlbumInfo() {
+export function getAlbumInfo(albumMid) {
     const data = Object.assign({}, PARAM, {
         albummid: albumMid,
         g_tk: 1278911659,

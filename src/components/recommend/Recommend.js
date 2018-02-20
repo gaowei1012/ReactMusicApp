@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import {Route} from 'react-router-dom';
 import Swiper from 'swiper';
 import LazyLoad, {forceCheck} from 'react-lazyload';
 import { getCarousel, getNewAlbum } from '../../api/recommend';
@@ -6,6 +7,7 @@ import { CODE_SUCCESS } from '../../api/config';
 import * as AlbumModel from '../../model/album';
 import Scroll from '../../common/scroll/Scroll';
 import Loading from '../../common/loading/Loading';
+import Album from '../album/Album';
 
 import './recommend.styl';
 import 'swiper/dist/css/swiper.css';
@@ -67,7 +69,8 @@ class Reacommend extends Component {
                 }
             }
         });
-    }
+    };
+
     toLink(linkUrl) {
         // 使用闭包把变量变为局部变量使用
         return () => {
@@ -75,13 +78,25 @@ class Reacommend extends Component {
         };
     };
 
+    toAlbumDetail(url) {
+        // scroll 组件会派发一个点击事件， 不能使用链接跳转
+        return () => {
+            this.props.history.push({
+                pathname: url
+            });
+        };
+    };
+
     render() {
+        let {match} = this.props;
         let albums = this.state.newAlbums.map(item => {
             // 通过函数创建专辑对象
             let album = AlbumModel.createAlbumByList(item);
 
             return (
-                <div className="album-wrapper" key={album.mId}>
+                <div className="album-wrapper" key={album.mId}
+                    onClick={this.toAlbumDetail(`${match.url + '/' + album.mId}`)}
+                >
                     <div className="left">
                         <LazyLoad>
                             <img src={album.img} width="100%" height="100%" alt={album.name} />
@@ -133,6 +148,8 @@ class Reacommend extends Component {
                         </div>
                     </div>
                 </Scroll>
+                <Loading title="正在加载..." show={this.state.loading}/>
+                <Route path={`${match.url + '/:id'}`} component={Album}/>
             </div>
         );
     }

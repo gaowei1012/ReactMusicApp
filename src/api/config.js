@@ -23,5 +23,4 @@ const OPTION = {
 
 const CODE_SUCCESS = 0;
 
-
 export {URL, PARAM, OPTION, CODE_SUCCESS};

@@ -28,7 +28,8 @@ class Album extends React.Component {
     componentWillMount() {
         this.setState({
             show: true
-        });      
+        });     
+         
         let albumBgDOM = ReactDOM.findDOMNode(this.refs.albumBg);
         let albumContainerDOM = ReactDOM.findDOMNode(this.refs.albumContainer);
         albumContainerDOM.style.top = albumBgDOM.offsetHeight + "px";

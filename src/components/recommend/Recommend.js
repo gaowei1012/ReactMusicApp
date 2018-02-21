@@ -88,7 +88,9 @@ class Reacommend extends Component {
     };
 
     render() {
+        
         let {match} = this.props;
+
         let albums = this.state.newAlbums.map(item => {
             // 通过函数创建专辑对象
             let album = AlbumModel.createAlbumByList(item);
@@ -98,6 +100,7 @@ class Reacommend extends Component {
                     onClick={this.toAlbumDetail(`${match.url + '/' + album.mId}`)}
                 >
                     <div className="left">
+                        {/* img lazyload */}
                         <LazyLoad>
                             <img src={album.img} width="100%" height="100%" alt={album.name} />
                         </LazyLoad>

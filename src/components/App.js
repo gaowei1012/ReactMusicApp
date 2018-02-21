@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Route, Switch, Redirect, NavLink } from 'react
 import Recommend from './recommend/Recommend';
 import Ranking from './ranking/Ranking';
 import Search from './search/Search';
+// import Player from '../containers/Player';
 
 import logo from '../assets/imgs/logo.png';
 import '../assets/stylus/font.styl';
@@ -47,6 +48,7 @@ class App extends Component {
               <Route component={Recommend} />
             </Switch>
           </div>
+          {/* <Player /> */}
         </div>
       </Router>
     );

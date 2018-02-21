@@ -6,7 +6,6 @@ import Scroll from "@/common/scroll/Scroll"
 import Loading from "@/common/loading/Loading"
 import {getAlbumInfo} from "@/api/recommend"
 import {getSongVKey} from "@/api/song"
-// import {getSongVkey} from '../../api/song';
 import {CODE_SUCCESS} from "@/api/config"
 import * as AlbumModel from "@/model/album"
 import * as SongModel from "@/model/song"

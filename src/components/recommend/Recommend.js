@@ -77,14 +77,14 @@ class Reacommend extends Component {
             window.location.href = linkUrl;
         };
     };
-
+    // 通过事件传参， 实现跳转
     toAlbumDetail(url) {
         // scroll 组件会派发一个点击事件， 不能使用链接跳转
         return () => {
             this.props.history.push({
                 pathname: url
             });
-        };
+        }
     };
 
     render() {

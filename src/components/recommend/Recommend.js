@@ -7,7 +7,8 @@ import { CODE_SUCCESS } from '../../api/config';
 import * as AlbumModel from '../../model/album';
 import Scroll from '../../common/scroll/Scroll';
 import Loading from '../../common/loading/Loading';
-import Album from '../album/Album';
+// import Album from '../album/Album';
+import Album from '../../containers/Album';
 
 import './recommend.styl';
 import 'swiper/dist/css/swiper.css';

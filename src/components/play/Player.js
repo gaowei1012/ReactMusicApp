@@ -5,6 +5,7 @@ import Progress from './Progress';
 
 import "./player.styl";
 
+
 class Player extends React.Component {
     constructor(props) {
         super(props);
